@@ -16,13 +16,13 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <About />
         <Solutions />
         <Dashboard />
         <SecurityChecklist />
         <PricingModel />
         <Differentials />
         <Coverage />
+        <About />
         <CTA />
       </main>
       <Footer />

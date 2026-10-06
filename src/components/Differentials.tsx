@@ -1,56 +1,74 @@
-import { CheckIcon, ShieldIcon, TruckIcon, ZapIcon } from "./icons";
-import { Card, Eyebrow } from "./ui";
+import Link from "next/link";
+import type { ReactNode } from "react";
 
-const items = [
+/* Mesmo destaque de [CONFIRMAR] usado no simulador. */
+const confirmar = (texto: string) => (
+  <>
+    {" "}
+    <span className="rounded bg-amber-400/20 px-1 font-semibold text-amber-300">
+      [CONFIRMAR]
+    </span>{" "}
+    {texto}
+  </>
+);
+
+const rows: { term: string; value: ReactNode }[] = [
+  { term: "No mercado", value: "Desde 1997" },
   {
-    icon: ZapIcon,
-    accent: "amber" as const,
-    title: "Atendimento Ágil",
-    description:
-      "Respostas rápidas e eficientes para cada demanda técnica, sempre que a empresa precisar.",
+    term: "Operação",
+    value: "Monitoramento NOC e SOC, 24 horas por dia, 7 dias por semana",
   },
   {
-    icon: ShieldIcon,
-    accent: "cyan" as const,
-    title: "Equipe Especializada",
-    description:
-      "Profissionais certificados, com expertise consolidada em segurança da informação.",
+    term: "Prioridade",
+    value: (
+      <>
+        Chamados classificados por severidade, de P1 a P4.{" "}
+        <Link
+          href="/como-funciona#sla"
+          className="text-base text-cyan-400 underline underline-offset-4 transition-colors hover:text-cyan-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
+        >
+          Ver tempos de resposta
+        </Link>
+      </>
+    ),
   },
   {
-    icon: CheckIcon,
-    accent: "amber" as const,
-    title: "Parceria Vivo Empresas",
-    description:
-      "A solidez de uma das maiores operadoras do país, aliada à nossa especialização técnica.",
+    term: "Equipe",
+    value: (
+      <>
+        Profissionais certificados em segurança da informação
+        {confirmar("quais certificações")}
+      </>
+    ),
   },
   {
-    icon: TruckIcon,
-    accent: "cyan" as const,
-    title: "Suporte Pós-venda Contínuo",
-    description:
-      "Acompanhamento dedicado do primeiro contato até a operação em produção.",
+    term: "Pós-venda",
+    value:
+      "Acompanhamento dedicado do primeiro contato até a operação em produção",
   },
 ];
 
 export default function Differentials() {
   return (
-    <section id="diferenciais" className="scroll-mt-20 bg-slate-900/30 py-24 px-6">
-      <div className="mx-auto max-w-6xl">
-        <Eyebrow accent="cyan">Nossos diferenciais</Eyebrow>
-        <h2 className="font-heading max-w-3xl text-3xl font-extrabold text-white sm:text-4xl md:text-5xl">
+    <section id="diferenciais" className="scroll-mt-20 bg-slate-950 px-6 py-24">
+      <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1fr_1.5fr] lg:gap-20">
+        <h2 className="font-heading max-w-[18ch] self-start text-[length:clamp(2rem,4vw,3.25rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-white lg:sticky lg:top-28">
           Por que empresas confiam no Grupo RAM.
         </h2>
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2">
-          {items.map((item) => (
-            <Card key={item.title} {...item} />
+        <dl className="border-b border-slate-700/40">
+          {rows.map((row) => (
+            <div
+              key={row.term}
+              className="grid gap-2 border-t border-slate-700/40 py-6 sm:grid-cols-[11rem_1fr] sm:gap-8"
+            >
+              <dt className="text-[0.9375rem] text-slate-400 sm:pt-1">
+                {row.term}
+              </dt>
+              <dd className="text-xl leading-snug text-white">{row.value}</dd>
+            </div>
           ))}
-        </div>
-
-        <p className="mt-14 text-center text-2xl font-bold text-white">
-          Compromisso e{" "}
-          <span className="text-amber-400">Excelência.</span>
-        </p>
+        </dl>
       </div>
     </section>
   );

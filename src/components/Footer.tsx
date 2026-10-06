@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Logo from "./Logo";
 
 export default function Footer() {
@@ -19,19 +20,19 @@ export default function Footer() {
             <h4 className="font-semibold text-white">Soluções</h4>
             <ul className="mt-4 space-y-2 text-sm text-slate-400">
               <li>
-                <a href="#solucao" className="transition hover:text-cyan-400">
+                <Link href="/#solucao" className="transition hover:text-cyan-400">
                   Firewall as a Service
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#solucao" className="transition hover:text-cyan-400">
+                <Link href="/#solucao" className="transition hover:text-cyan-400">
                   Segurança Perimetral
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#solucao" className="transition hover:text-cyan-400">
+                <Link href="/#solucao" className="transition hover:text-cyan-400">
                   Monitoramento NOC/SOC
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -40,19 +41,19 @@ export default function Footer() {
             <h4 className="font-semibold text-white">Empresa</h4>
             <ul className="mt-4 space-y-2 text-sm text-slate-400">
               <li>
-                <a href="#quem-somos" className="transition hover:text-cyan-400">
+                <Link href="/#quem-somos" className="transition hover:text-cyan-400">
                   Quem somos
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#diferenciais" className="transition hover:text-cyan-400">
+                <Link href="/#diferenciais" className="transition hover:text-cyan-400">
                   Diferenciais
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#contato" className="transition hover:text-cyan-400">
+                <Link href="/#contato" className="transition hover:text-cyan-400">
                   Contato
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
