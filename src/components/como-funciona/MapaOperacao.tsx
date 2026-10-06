@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { CheckIcon } from "../icons";
 import {
   hubInfo,
@@ -54,6 +54,59 @@ export default function MapaOperacao() {
     noc: true,
   });
 
+  const svgRef = useRef<SVGSVGElement>(null);
+  const boxes = useRef<Record<string, SVGRectElement | null>>({});
+  const lines = useRef<Record<string, SVGLineElement | null>>({});
+
+  // Mede as caixas no DOM e prende cada linha na borda externa delas.
+  const measure = () => {
+    const svg = svgRef.current;
+    const hub = boxes.current.hub;
+    if (!svg || !hub) return;
+    const sb = svg.getBoundingClientRect();
+    if (!sb.width) return;
+    const k = svg.viewBox.baseVal.width / sb.width; // px -> unidades do viewBox
+    const read = (el: SVGRectElement) => {
+      const r = el.getBoundingClientRect();
+      return {
+        cx: (r.left + r.width / 2 - sb.left) * k,
+        cy: (r.top + r.height / 2 - sb.top) * k,
+        hw: (r.width / 2) * k,
+        hh: (r.height / 2) * k,
+      };
+    };
+    // Fração da reta centro a centro em que ela cruza a borda do retângulo.
+    const exit = (b: { hw: number; hh: number }, dx: number, dy: number) =>
+      Math.min(
+        dx === 0 ? Infinity : b.hw / Math.abs(dx),
+        dy === 0 ? Infinity : b.hh / Math.abs(dy),
+      );
+    const h = read(hub);
+    for (const n of mapNodes) {
+      const el = boxes.current[n.id];
+      const line = lines.current[n.id];
+      if (!el || !line) continue;
+      const b = read(el);
+      const dx = b.cx - h.cx;
+      const dy = b.cy - h.cy;
+      const th = exit(h, dx, dy);
+      const tb = exit(b, dx, dy);
+      line.setAttribute("x1", String(h.cx + dx * th));
+      line.setAttribute("y1", String(h.cy + dy * th));
+      line.setAttribute("x2", String(b.cx - dx * tb));
+      line.setAttribute("y2", String(b.cy - dy * tb));
+    }
+  };
+
+  useLayoutEffect(() => {
+    measure();
+    const svg = svgRef.current;
+    if (!svg) return;
+    const ro = new ResizeObserver(measure);
+    ro.observe(svg);
+    return () => ro.disconnect();
+  });
+
   const toggle = (id: MapNodeId) => {
     setActive((prev) => ({ ...prev, [id]: !prev[id] }));
     setSelected((cur) => (cur === id ? null : cur));
@@ -90,12 +143,13 @@ export default function MapaOperacao() {
             key={n.id}
             type="button"
             aria-pressed={active[n.id]}
+            aria-current={selected === n.id ? "true" : undefined}
             onClick={() => toggle(n.id)}
             className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 ${
               active[n.id]
                 ? "border-cyan-500/50 text-cyan-400"
                 : "border-slate-700 text-slate-500 line-through"
-            }`}
+            } ${selected === n.id ? "bg-cyan-500/15 ring-1 ring-cyan-400" : ""}`}
           >
             <span
               aria-hidden
@@ -119,8 +173,9 @@ export default function MapaOperacao() {
           className="overflow-x-auto rounded-2xl border border-slate-800 bg-slate-900/40 focus-visible:outline-2 focus-visible:outline-cyan-400"
         >
           <svg
+            ref={svgRef}
             viewBox="0 0 800 460"
-            className="block h-auto w-full min-w-[720px]"
+            className="block h-auto w-full min-w-[720px] overflow-hidden"
             role="group"
             aria-label="Diagrama: FWaaS ao centro, ligado a Firewall Físico e Cloud, Endpoints, Disaster Recovery e NOC e SOC"
           >
@@ -130,12 +185,11 @@ export default function MapaOperacao() {
                 active[n.id] && (
                   <line
                     key={n.id}
-                    x1={HUB.cx}
-                    y1={HUB.cy}
-                    x2={n.cx}
-                    y2={n.cy}
+                    ref={(el) => {
+                      lines.current[n.id] = el;
+                    }}
                     strokeWidth={selected === n.id ? 3 : 2}
-                    className={`${
+                    className={`pointer-events-none ${
                       n.mode === "auto"
                         ? "edge-auto stroke-cyan-400"
                         : "edge-human stroke-amber-400"
@@ -170,6 +224,9 @@ export default function MapaOperacao() {
                 height={HUB.h + 12}
               />
               <rect
+                ref={(el) => {
+                  boxes.current.hub = el;
+                }}
                 x={HUB.cx - HUB.w / 2}
                 y={HUB.cy - HUB.h / 2}
                 width={HUB.w}
@@ -229,6 +286,9 @@ export default function MapaOperacao() {
                     height={NODE.h + 12}
                   />
                   <rect
+                    ref={(el) => {
+                      boxes.current[n.id] = el;
+                    }}
                     x={x}
                     y={y}
                     width={NODE.w}
@@ -236,8 +296,18 @@ export default function MapaOperacao() {
                     rx={16}
                     strokeWidth={isSel ? 3 : 1.5}
                     strokeDasharray={n.mode === "human" ? "6 5" : undefined}
-                    className={`${s.stroke} ${isSel ? s.fill : "fill-slate-900"}`}
+                    className={`${s.stroke} fill-slate-900`}
                   />
+                  {isSel && (
+                    <rect
+                      x={x}
+                      y={y}
+                      width={NODE.w}
+                      height={NODE.h}
+                      rx={16}
+                      className={`pointer-events-none stroke-none ${s.fill}`}
+                    />
+                  )}
                   <text
                     x={n.cx}
                     y={n.cy - 4}
