@@ -86,6 +86,12 @@ export function CheckItem({ children }: { children: ReactNode }) {
   );
 }
 
+export const primaryButtonClass =
+  "inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-amber-400 to-orange-500 px-6 py-3.5 text-sm font-bold text-slate-950 shadow-lg shadow-amber-500/20 transition hover:brightness-110";
+
+export const ghostButtonClass =
+  "inline-flex items-center gap-2 rounded-full border border-slate-700 px-6 py-3.5 text-sm font-semibold text-slate-200 transition hover:border-cyan-500/50 hover:text-cyan-400";
+
 export function PrimaryButton({
   href,
   children,
@@ -94,10 +100,7 @@ export function PrimaryButton({
   children: ReactNode;
 }) {
   return (
-    <a
-      href={href}
-      className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-amber-400 to-orange-500 px-6 py-3.5 text-sm font-bold text-slate-950 shadow-lg shadow-amber-500/20 transition hover:brightness-110"
-    >
+    <a href={href} className={primaryButtonClass}>
       {children}
     </a>
   );
@@ -111,10 +114,7 @@ export function GhostButton({
   children: ReactNode;
 }) {
   return (
-    <a
-      href={href}
-      className="inline-flex items-center gap-2 rounded-full border border-slate-700 px-6 py-3.5 text-sm font-semibold text-slate-200 transition hover:border-cyan-500/50 hover:text-cyan-400"
-    >
+    <a href={href} className={ghostButtonClass}>
       {children}
     </a>
   );
