@@ -31,24 +31,24 @@ export default function Dashboard() {
       <div className="mx-auto max-w-6xl">
         <Eyebrow accent="amber">Painel de gestão</Eyebrow>
         <h2 className="font-heading max-w-3xl text-3xl font-extrabold text-white sm:text-4xl md:text-5xl">
-          Visibilidade total da sua rede, em um único painel.
+          A sua rede inteira, em um único painel.
         </h2>
         <p className="mt-6 max-w-3xl text-lg text-slate-400">
-          Acompanhe tráfego, bloqueios, dispositivos conectados e a saúde do
-          seu firewall em tempo real — de forma simples, visual e acessível
-          de qualquer lugar.
+          Acompanhe links, consumo de banda, bloqueios, aparelhos conectados,
+          CPU e memória do firewall, com histórico. O painel funciona no
+          celular.
         </p>
 
         <div className="mt-14 grid gap-6 sm:grid-cols-2">
           <BrowserFrame
             src="/images/dashboard-04.jpeg"
             alt="Visão geral do painel de gestão do firewall, com status de internet, dispositivos conectados, bloqueios e tráfego em tempo real"
-            path="painel.gruporam.com.br/firewall"
+            path="Painel do firewall"
           />
           <BrowserFrame
             src="/images/dashboard-03.jpeg"
             alt="Métricas de banda mostrando o tráfego de upload e download da interface WAN1"
-            path="painel.gruporam.com.br/metricas"
+            path="Métricas de banda"
           />
         </div>
       </div>

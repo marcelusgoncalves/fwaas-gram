@@ -6,11 +6,11 @@ import Logo from "./Logo";
 import { CloseIcon, MenuIcon } from "./icons";
 
 const links = [
-  { href: "/#quem-somos", label: "Quem somos" },
-  { href: "/#solucao", label: "Solução" },
-  { href: "/como-funciona", label: "Como funciona" },
-  { href: "/#diferenciais", label: "Diferenciais" },
-  { href: "/#contato", label: "Contato" },
+  { href: "/empresas", label: "Para empresas" },
+  { href: "/provedores", label: "Para provedores" },
+  { href: "/modulos", label: "Módulos" },
+  { href: "/demonstracao", label: "Demonstração" },
+  { href: "/contato", label: "Contato" },
 ];
 
 export default function Header() {
@@ -19,7 +19,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/5 bg-slate-950/80 backdrop-blur-md">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link href="/#hero" className="flex items-center">
+        <Link href="/" className="flex items-center">
           <Logo />
         </Link>
 
@@ -33,10 +33,10 @@ export default function Header() {
           ))}
         </ul>
 
-        <Link href="/#contato"
+        <Link href="/contato"
           className="hidden rounded-full bg-gradient-to-r from-amber-400 to-orange-500 px-5 py-2.5 text-sm font-bold text-slate-950 transition hover:brightness-110 md:inline-block"
         >
-          Solicitar orçamento
+          Solicitar proposta
         </Link>
 
         <button
@@ -64,11 +64,11 @@ export default function Header() {
               </li>
             ))}
           </ul>
-          <Link href="/#contato"
+          <Link href="/contato"
             onClick={() => setOpen(false)}
             className="mt-4 inline-block rounded-full bg-gradient-to-r from-amber-400 to-orange-500 px-5 py-2.5 text-sm font-bold text-slate-950"
           >
-            Solicitar orçamento
+            Solicitar proposta
           </Link>
         </div>
       )}

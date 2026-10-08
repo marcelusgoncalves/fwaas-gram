@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
-export const alt = "FWAAS | Firewall as a Service — Grupo RAM";
+export const alt = "Firewall Grupo RAM | Firewall gerenciado sobre MikroTik";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -52,7 +52,7 @@ export default async function Image() {
               fontWeight: 700,
             }}
           >
-            CYBERSECURITY &amp; NETWORK PROTECTION
+            FIREWALL GERENCIADO PARA REDES MIKROTIK
           </span>
           <span
             style={{
@@ -83,7 +83,7 @@ export default async function Image() {
               maxWidth: 820,
             }}
           >
-            Experiência que evolui, soluções que entregam.
+            Firewall gerenciado sobre MikroTik, em um painel web.
           </span>
         </div>
       </div>

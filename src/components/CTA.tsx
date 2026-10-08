@@ -16,11 +16,12 @@ export default function CTA() {
         </div>
 
         <h2 className="font-heading text-3xl font-extrabold text-white sm:text-5xl">
-          Vamos proteger a sua operação?
+          Vamos conversar sobre a sua rede?
         </h2>
         <p className="mt-6 text-lg text-slate-400">
-          Fale com nossa equipe comercial e receba uma proposta de Firewall
-          as a Service sob medida para a sua empresa.
+          Fale com a equipe comercial e receba uma proposta sob medida, seja
+          para a sua empresa ou para a sua carteira de clientes. Escolha
+          abaixo se você é empresa ou provedor.
         </p>
 
         <div className="mt-10 rounded-2xl border border-slate-800 bg-slate-900/30 p-6 sm:p-8">
@@ -68,8 +69,8 @@ export default function CTA() {
         </div>
 
         <p className="mt-14 text-sm font-semibold text-white">
-          Experiência que evolui,{" "}
-          <span className="text-cyan-400">soluções que entregam.</span>
+          Sua internet não cai,{" "}
+          <span className="text-cyan-400">e você vê tudo em uma tela só.</span>
         </p>
       </div>
     </section>

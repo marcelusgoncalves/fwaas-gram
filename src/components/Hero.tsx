@@ -1,5 +1,23 @@
 import Image from "next/image";
-import { ArrowRightIcon, PhoneIcon } from "./icons";
+import Link from "next/link";
+import { ArrowRightIcon } from "./icons";
+
+const doors = [
+  {
+    href: "/empresas",
+    kicker: "Para sua empresa",
+    text: "Internet que não cai, navegação sob controle, VPN, filiais e Wi-Fi de visitantes, tudo acompanhado pelo celular.",
+    tone: "hover:border-cyan-500/50",
+    kickerClass: "text-cyan-400",
+  },
+  {
+    href: "/provedores",
+    kicker: "Para provedores e integradores",
+    text: "A plataforma inteira com a sua marca, no seu endereço, e cada cliente vendo só a própria rede.",
+    tone: "hover:border-amber-500/50",
+    kickerClass: "text-amber-400",
+  },
+];
 
 export default function Hero() {
   return (
@@ -7,91 +25,69 @@ export default function Hero() {
       id="hero"
       className="relative scroll-mt-20 overflow-hidden bg-slate-950"
     >
-      {/* Dashboard cover visual */}
       <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[60%] lg:block">
         <Image
           src="/images/dashboard-capa.jpeg"
-          alt=""
+          alt="Painel de gestão do firewall com métricas de banda, relatórios de acesso e filtro de conteúdo"
           fill
           priority
-          className="object-cover"
+          className="object-cover opacity-70"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/40 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/40" />
       </div>
 
-      {/* Warm glow */}
       <div className="pointer-events-none absolute -right-40 -top-40 h-[32rem] w-[32rem] rounded-full bg-amber-600/10 blur-3xl" />
       <div className="pointer-events-none absolute left-1/3 top-1/2 h-[28rem] w-[28rem] -translate-y-1/2 rounded-full bg-cyan-500/5 blur-3xl" />
-
-      {/* Corner bracket */}
       <div className="pointer-events-none absolute left-6 top-8 hidden h-24 w-40 border-l border-t border-amber-500/30 sm:block" />
 
-      {/* Concentric rings */}
-      <svg
-        className="pointer-events-none absolute bottom-16 right-10 hidden h-40 w-40 text-amber-500/30 md:block"
-        viewBox="0 0 100 100"
-        fill="none"
-      >
-        <circle cx="50" cy="50" r="45" stroke="currentColor" strokeWidth="1" />
-        <circle cx="50" cy="50" r="30" stroke="currentColor" strokeWidth="1" />
-        <circle cx="50" cy="50" r="15" stroke="currentColor" strokeWidth="1" />
-      </svg>
-
-      <div className="relative mx-auto max-w-6xl px-6 pb-28 pt-20 sm:pt-28">
-        <div className="flex justify-end">
-          <span className="text-xs uppercase tracking-[0.3em] text-slate-500">
-            Desde 1997
-          </span>
-        </div>
-
-        <div className="mt-16 max-w-2xl sm:mt-24">
+      <div className="relative mx-auto max-w-6xl px-6 pb-24 pt-20 sm:pt-28">
+        <div className="max-w-3xl">
           <div className="mb-6 flex items-center gap-3">
             <span className="h-px w-8 bg-amber-400" />
             <span className="text-xs font-semibold uppercase tracking-[0.25em] text-amber-400">
-              Cybersecurity &amp; Network Protection
+              Firewall gerenciado sobre MikroTik
             </span>
           </div>
 
-          <h1 className="font-heading text-5xl font-extrabold leading-[1.05] text-white sm:text-6xl md:text-7xl">
-            Firewall
-            <br />
-            <span className="text-cyan-400">as a Service</span>
+          <h1 className="font-heading text-4xl font-extrabold leading-[1.1] text-white sm:text-5xl md:text-6xl">
+            Sua internet não cai, seus dados ficam protegidos, suas filiais
+            conversam entre si e{" "}
+            <span className="text-cyan-400">
+              você vê tudo em uma tela só.
+            </span>
           </h1>
 
           <p className="mt-6 max-w-xl text-lg text-slate-300">
-            Segurança perimetral inteligente, sob demanda e sem complexidade
-            para a continuidade da sua operação.
+            O roteador MikroTik do cliente vira um firewall gerenciado,
+            administrado inteiro por um painel web, sem Winbox e sem visita
+            técnica.
           </p>
-
-          <div className="mt-8 flex items-center gap-3">
-            <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
-            <span className="h-px w-10 bg-gradient-to-r from-amber-400 to-cyan-400" />
-            <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
-          </div>
-
-          <div className="mt-10 flex flex-wrap gap-4">
-            <a
-              href="#contato"
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-amber-400 to-orange-500 px-7 py-4 text-sm font-bold text-slate-950 shadow-lg shadow-amber-500/20 transition hover:brightness-110"
-            >
-              Solicitar orçamento
-              <ArrowRightIcon className="h-4 w-4" />
-            </a>
-            <a
-              href="tel:+556130365656"
-              className="inline-flex items-center gap-2 rounded-full border border-slate-700 px-7 py-4 text-sm font-semibold text-slate-200 transition hover:border-cyan-500/50 hover:text-cyan-400"
-            >
-              <PhoneIcon className="h-4 w-4" />
-              (61) 3036-5656
-            </a>
-          </div>
         </div>
 
-        <p className="mt-24 max-w-md text-sm text-slate-500 sm:mt-32">
-          Mais de 28 anos entregando tecnologia, segurança e infraestrutura
-          para empresas em todo o Brasil.
-        </p>
+        <div className="mt-14 grid gap-5 md:grid-cols-2">
+          {doors.map((door) => (
+            <Link
+              key={door.href}
+              href={door.href}
+              className={`group rounded-2xl border border-slate-800 bg-slate-900/60 p-8 backdrop-blur-md transition hover:bg-slate-900/80 ${door.tone}`}
+            >
+              <span
+                className={`text-xs font-semibold uppercase tracking-[0.2em] ${door.kickerClass}`}
+              >
+                Entrar
+              </span>
+              <h2 className="font-heading mt-3 text-2xl font-bold text-white sm:text-3xl">
+                {door.kicker}
+              </h2>
+              <p className="mt-3 text-slate-300">{door.text}</p>
+              <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-white transition group-hover:gap-3">
+                Ver como funciona
+                <ArrowRightIcon className="h-4 w-4" />
+              </span>
+            </Link>
+          ))}
+        </div>
       </div>
     </section>
   );

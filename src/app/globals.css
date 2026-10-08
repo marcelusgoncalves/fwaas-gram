@@ -9,40 +9,7 @@ body {
   background: #020617;
 }
 
-/* ---------- /como-funciona: animações ---------- */
-
-@keyframes flow-step {
-  0% {
-    border-color: rgb(34 211 238 / 0.8);
-    background-color: rgb(34 211 238 / 0.12);
-  }
-  22%,
-  100% {
-    border-color: rgb(30 41 59);
-    background-color: rgb(15 23 42 / 0.4);
-  }
-}
-
-@keyframes flow-dot {
-  0% {
-    left: 0;
-    opacity: 0;
-  }
-  10%,
-  90% {
-    opacity: 1;
-  }
-  100% {
-    left: calc(100% - 0.5rem);
-    opacity: 0;
-  }
-}
-
-@keyframes edge-dash {
-  to {
-    stroke-dashoffset: -28;
-  }
-}
+/* ---------- /demonstracao: entrada das telas simuladas ---------- */
 
 @keyframes slide-in {
   from {
@@ -55,78 +22,12 @@ body {
   }
 }
 
-.flow-step {
-  animation: flow-step 6s ease-in-out infinite;
-  animation-delay: calc(var(--i, 0) * 1.5s);
-}
-
-.flow-dot {
-  animation: flow-dot 2.4s linear infinite;
-}
-
-.edge-auto {
-  stroke-dasharray: 6 8;
-  animation: edge-dash 1.2s linear infinite;
-}
-
-.edge-human {
-  stroke-dasharray: 2 7;
-}
-
 .slide-in {
   animation: slide-in 0.35s ease-out both;
 }
 
-.step-in {
-  animation: slide-in 0.4s ease-out both;
-  animation-delay: calc(var(--i, 0) * 90ms);
-}
-
-.map-node .map-ring {
-  opacity: 0;
-}
-
-.map-node:focus-visible {
-  outline: none;
-}
-
-.map-node:focus-visible .map-ring {
-  opacity: 1;
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .flow-step,
-  .flow-dot,
-  .edge-auto,
-  .slide-in,
-  .step-in {
+  .slide-in {
     animation: none;
-  }
-
-  .flow-dot {
-    display: none;
-  }
-}
-
-/* ---------- Home: fios do bloco Serviços ---------- */
-
-.line-draw {
-  transform: scaleX(0);
-  transform-origin: left;
-}
-
-.line-draw[data-on="true"] {
-  transform: scaleX(1);
-  transition: transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
-  transition-delay: calc(var(--i, 0) * 80ms);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .line-draw {
-    transform: none;
-  }
-
-  .line-draw[data-on="true"] {
-    transition: none;
   }
 }
