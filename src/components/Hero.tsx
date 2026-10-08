@@ -42,26 +42,24 @@ export default function Hero() {
       <div className="pointer-events-none absolute left-6 top-8 hidden h-24 w-40 border-l border-t border-amber-500/30 sm:block" />
 
       <div className="relative mx-auto max-w-6xl px-6 pb-24 pt-20 sm:pt-28">
-        <div className="max-w-3xl">
+        <div className="max-w-4xl">
           <div className="mb-6 flex items-center gap-3">
             <span className="h-px w-8 bg-amber-400" />
             <span className="text-xs font-semibold uppercase tracking-[0.25em] text-amber-400">
-              Firewall gerenciado sobre MikroTik
+              Firewall gerenciado para empresas
             </span>
           </div>
 
-          <h1 className="font-heading text-4xl font-extrabold leading-[1.1] text-white sm:text-5xl md:text-6xl">
-            Sua internet não cai, seus dados ficam protegidos, suas filiais
-            conversam entre si e{" "}
+          <h1 className="font-heading text-3xl font-extrabold leading-[1.15] text-white sm:text-4xl md:text-5xl">
+            Proteja a rede da sua empresa e{" "}
             <span className="text-cyan-400">
-              você vê tudo em uma tela só.
+              acompanhe tudo em uma tela só.
             </span>
           </h1>
 
-          <p className="mt-6 max-w-xl text-lg text-slate-300">
-            O roteador MikroTik do cliente vira um firewall gerenciado,
-            administrado inteiro por um painel web, sem Winbox e sem visita
-            técnica.
+          <p className="mt-6 max-w-2xl text-lg text-slate-300">
+            Proteção, monitoramento e alertas no WhatsApp, com painel web para
+            acompanhar sua rede e suas filiais. Gerenciado pelo Grupo RAM.
           </p>
         </div>
 

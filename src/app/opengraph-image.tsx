@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
-export const alt = "Firewall Grupo RAM | Firewall gerenciado sobre MikroTik";
+export const alt = "Firewall Grupo RAM | Firewall gerenciado para empresas";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -52,7 +52,7 @@ export default async function Image() {
               fontWeight: 700,
             }}
           >
-            FIREWALL GERENCIADO PARA REDES MIKROTIK
+            FIREWALL GERENCIADO PARA EMPRESAS
           </span>
           <span
             style={{
@@ -83,7 +83,7 @@ export default async function Image() {
               maxWidth: 820,
             }}
           >
-            Firewall gerenciado sobre MikroTik, em um painel web.
+            Firewall gerenciado para empresas, em um painel web.
           </span>
         </div>
       </div>

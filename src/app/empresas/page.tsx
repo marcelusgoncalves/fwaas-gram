@@ -76,9 +76,8 @@ export default function EmpresasPage() {
         title="Uma rede que você acompanha sem depender de ninguém."
       >
         <p>
-          O roteador MikroTik da sua empresa vira um firewall gerenciado,
-          administrado por um painel web. Sem trocar equipamento e sem visita
-          técnica.
+          A rede da sua empresa vira um firewall gerenciado, administrado por
+          um painel web e sem visita técnica.
         </p>
       </PageIntro>
 

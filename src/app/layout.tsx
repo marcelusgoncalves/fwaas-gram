@@ -17,11 +17,11 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   metadataBase: new URL("https://fwaas-gram.vercel.app"),
   title: {
-    default: "Firewall Grupo RAM | Firewall gerenciado sobre MikroTik",
+    default: "Firewall Grupo RAM | Firewall gerenciado para empresas",
     template: "%s | Firewall Grupo RAM",
   },
   description:
-    "Plataforma de firewall gerenciado sobre roteadores MikroTik: links redundantes, alertas no WhatsApp, controle de navegação, VPN, filiais e Wi-Fi de visitantes em um painel web.",
+    "Plataforma de firewall gerenciado: links redundantes, alertas no WhatsApp, controle de navegação, VPN, filiais e Wi-Fi de visitantes em um painel web.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
