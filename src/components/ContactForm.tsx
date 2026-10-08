@@ -3,6 +3,7 @@
 import { Suspense, useState, type FormEvent } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import { VERSAO_POLITICA_PRIVACIDADE } from "@/lib/privacidade";
 import { ArrowRightIcon, MailIcon, PhoneIcon } from "./icons";
 
 const inputClass =
@@ -35,6 +36,9 @@ function ContactFormFields() {
       telefone: texto("telefone"),
       mensagem: texto("mensagem"),
       _gotcha: texto("_gotcha"),
+      consentimento_lgpd: "sim",
+      consentimento_data_hora: new Date().toISOString(),
+      versao_politica_privacidade: VERSAO_POLITICA_PRIVACIDADE,
     };
 
     setEstado("enviando");

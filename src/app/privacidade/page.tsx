@@ -1,6 +1,10 @@
 // VALIDAR com jurídico antes de considerar definitivo
 import type { Metadata } from "next";
 import Shell, { PageIntro } from "@/components/Shell";
+import {
+  VERSAO_POLITICA_PRIVACIDADE,
+  dataPorExtenso,
+} from "@/lib/privacidade";
 
 export const metadata: Metadata = {
   title: "Política de Privacidade",
@@ -160,21 +164,16 @@ export default function PrivacidadePage() {
 
           <Secao titulo="Cookies e rastreamento">
             <p>
-              Este site não usa cookies de publicidade, pixels de marketing
-              nem ferramentas de rastreamento de terceiros, e não grava dados
-              no armazenamento local do seu navegador.
-            </p>
-            <p>
-              Usamos apenas a Vercel Web Analytics para medir o número de
-              visitas e as páginas acessadas, de forma agregada. Esse serviço
-              funciona sem cookies de rastreamento.
+              Este site utiliza a Vercel Web Analytics para medir acessos de
+              forma agregada. Não utilizamos cookies de publicidade nem
+              ferramentas de rastreamento de terceiros além dessa.
             </p>
           </Secao>
 
           <Secao titulo="Atualizações">
             <p>
-              Esta política foi revisada pela última vez em 8 de outubro de
-              2026. Podemos atualizá-la a qualquer momento, e a versão em vigor
+              Esta política foi revisada pela última vez em{" "}
+              {dataPorExtenso(VERSAO_POLITICA_PRIVACIDADE)}. Podemos atualizá-la a qualquer momento, e a versão em vigor
               é sempre a publicada nesta página.
             </p>
           </Secao>
