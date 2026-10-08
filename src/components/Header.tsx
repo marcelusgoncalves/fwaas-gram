@@ -10,6 +10,7 @@ const links = [
   { href: "/provedores", label: "Para provedores" },
   { href: "/modulos", label: "Módulos" },
   { href: "/demonstracao", label: "Demonstração" },
+  { href: "/como-funciona", label: "Como funciona" },
   { href: "/contato", label: "Contato" },
 ];
 

@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/modulos", priority: 0.8 },
     ...modulos.map((m) => ({ path: `/modulos/${m.slug}`, priority: 0.7 })),
     { path: "/demonstracao", priority: 0.8 },
+    { path: "/como-funciona", priority: 0.8 },
     { path: "/contato", priority: 0.8 },
   ];
 

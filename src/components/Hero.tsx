@@ -88,6 +88,17 @@ export default function Hero() {
             </Link>
           ))}
         </div>
+
+        <p className="mt-8 text-sm text-slate-400">
+          Quer entender a operação por trás do painel?{" "}
+          <Link
+            href="/como-funciona"
+            className="text-cyan-400 underline underline-offset-4 hover:text-cyan-300"
+          >
+            Veja como funciona
+          </Link>
+          .
+        </p>
       </div>
     </section>
   );

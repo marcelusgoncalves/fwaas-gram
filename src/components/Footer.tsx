@@ -39,6 +39,11 @@ export default function Footer() {
                   Demonstração
                 </Link>
               </li>
+              <li>
+                <Link href="/como-funciona" className="transition hover:text-cyan-400">
+                  Como funciona
+                </Link>
+              </li>
             </ul>
           </div>
 
