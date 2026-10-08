@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/demonstracao", priority: 0.8 },
     { path: "/como-funciona", priority: 0.8 },
     { path: "/contato", priority: 0.8 },
+    { path: "/privacidade", priority: 0.3 },
   ];
 
   return rotas.map(({ path, priority }) => ({

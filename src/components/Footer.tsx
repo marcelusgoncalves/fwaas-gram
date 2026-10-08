@@ -75,6 +75,11 @@ export default function Footer() {
 
         <div className="mt-10 border-t border-white/5 pt-8 text-center text-sm text-slate-500">
           <p>&copy; {currentYear} Grupo RAM. Todos os direitos reservados.</p>
+          <p className="mt-2">
+            <Link href="/privacidade" className="transition hover:text-cyan-400">
+              Política de Privacidade
+            </Link>
+          </p>
         </div>
       </div>
     </footer>

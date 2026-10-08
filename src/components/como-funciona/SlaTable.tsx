@@ -2,7 +2,6 @@ import { slaRows, slaNote } from "./data";
 import SectionShell from "./SectionShell";
 
 export default function SlaTable() {
-  // VALIDAR: tabela vinda do Contrato e do Termo de Adesão; confirmar se pode ser pública antes de ir para produção
   return (
     <SectionShell
       id="sla"

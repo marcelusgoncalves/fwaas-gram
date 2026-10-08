@@ -1,8 +1,9 @@
 "use client";
 
 import { Suspense, useState, type FormEvent } from "react";
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { ArrowRightIcon } from "./icons";
+import { ArrowRightIcon, MailIcon, PhoneIcon } from "./icons";
 
 const inputClass =
   "w-full rounded-xl border border-slate-800 bg-slate-900/40 px-4 py-3 text-sm text-slate-100 placeholder:text-slate-500 outline-none transition focus:border-cyan-500/50";
@@ -49,6 +50,53 @@ function ContactFormFields() {
     } catch {
       setEstado("erro");
     }
+  }
+
+  if (!process.env.NEXT_PUBLIC_FORM_ENDPOINT) {
+    return (
+      <div className="mt-10 rounded-2xl border border-slate-800 bg-slate-900/40 p-6 text-left">
+        <p className="font-heading text-lg font-semibold text-white">
+          Fale direto com nossa equipe comercial
+        </p>
+        <ul className="mt-5 space-y-3 text-sm">
+          <li>
+            <a
+              href="https://wa.me/5561996719149"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 text-slate-200 transition hover:text-cyan-400"
+            >
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-emerald-500/40 text-xs font-bold text-emerald-400">
+                WA
+              </span>
+              WhatsApp: (61) 99671-9149
+            </a>
+          </li>
+          <li>
+            <a
+              href="mailto:comercial@gruporam.com.br"
+              className="flex items-center gap-3 text-slate-200 transition hover:text-cyan-400"
+            >
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-cyan-500/40 text-cyan-400">
+                <MailIcon className="h-4 w-4" />
+              </span>
+              E-mail: comercial@gruporam.com.br
+            </a>
+          </li>
+          <li>
+            <a
+              href="tel:+556130365656"
+              className="flex items-center gap-3 text-slate-200 transition hover:text-cyan-400"
+            >
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-amber-500/40 text-amber-400">
+                <PhoneIcon className="h-4 w-4" />
+              </span>
+              Telefone: (61) 3036-5656
+            </a>
+          </li>
+        </ul>
+      </div>
+    );
   }
 
   if (estado === "sucesso") {
@@ -123,7 +171,15 @@ function ContactFormFields() {
           required
           className="mt-1 h-4 w-4 shrink-0 accent-amber-400"
         />
-        Concordo com o uso dos meus dados para contato comercial
+        <span>
+          Li e concordo com a{" "}
+          <Link
+            href="/privacidade"
+            className="text-cyan-400 underline underline-offset-4 hover:text-cyan-300"
+          >
+            Política de Privacidade
+          </Link>
+        </span>
       </label>
 
       <button
