@@ -131,6 +131,7 @@ export default function MapaOperacao() {
       eyebrow="Mapa da operação"
       accent="cyan"
       tone="soft"
+      /* VALIDAR: confirmar com a diretoria que o NOC/SOC 24x7 é entregue como serviço antes de ir para produção */
       title="Tudo conectado ao FWaaS, do firewall ao NOC e SOC."
       intro="Selecione um elemento para ver como ele participa da operação. Use os filtros para ligar e desligar áreas."
     >

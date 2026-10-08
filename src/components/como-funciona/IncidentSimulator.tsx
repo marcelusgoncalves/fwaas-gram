@@ -565,6 +565,7 @@ export const IncidentSimulator = forwardRef<SimuladorHandle>(
 
             {e >= 2 && (
               <div className="sim-in rounded-2xl border border-amber-400/40 bg-slate-900/40 p-4">
+                {/* VALIDAR: confirmar com a diretoria que o NOC/SOC 24x7 é entregue como serviço antes de ir para produção */}
                 <div className="flex items-center gap-3">
                   <span
                     aria-hidden="true"

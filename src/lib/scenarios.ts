@@ -68,6 +68,7 @@ export const CENARIOS: Cenario[] = [
         t: 8,
         etapa: 2,
         ator: "humano",
+        // VALIDAR: confirmar com a diretoria que o NOC/SOC 24x7 é entregue como serviço antes de ir para produção
         texto:
           "A equipe NOC e SOC acompanha o evento e abre chamado por severidade (P1 a P4).",
       },

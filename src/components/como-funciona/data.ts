@@ -24,7 +24,7 @@ export const managedBullets = [
   "Redundância de links com troca automática",
   "Alertas no WhatsApp quando algo cai e quando volta",
   "Gestão centralizada de políticas",
-  "Atualizações e patches contínuos",
+  // VALIDAR: confirmar com a diretoria que o NOC/SOC 24x7 é entregue como serviço antes de ir para produção
   "Monitoramento NOC e SOC 24 horas por dia, 7 dias por semana",
 ];
 
